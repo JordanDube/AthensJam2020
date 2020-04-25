@@ -155,7 +155,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86f2608d633a69a458538f00ebd56b55, type: 3}
   m_Name: 
@@ -163,6 +163,8 @@ MonoBehaviour:
   boundary: 5
   speed: 5
   player: {fileID: 2028755125}
+  screenWidth: 0
+  screenHeight: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -248,7 +250,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2049285979}
   - {fileID: 2028755126}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -480,10 +481,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2028755126}
   - component: {fileID: 2028755127}
-  - component: {fileID: 2028755128}
   - component: {fileID: 2028755131}
-  - component: {fileID: 2028755129}
   - component: {fileID: 2028755130}
+  - component: {fileID: 2028755128}
+  - component: {fileID: 2028755129}
   m_Layer: 0
   m_Name: Jetpack
   m_TagString: Untagged
@@ -501,9 +502,10 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2049285979}
   m_Father: {fileID: 526993154}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2028755127
 SpriteRenderer:
@@ -571,7 +573,6 @@ MonoBehaviour:
   raiseSpeed: 5
   angleSpeed: 0.25
   heightLimit: 2.5
-  boundary: 0.02
   hasWater: 1
   mainCam: {fileID: 519420031}
 --- !u!50 &2028755129
@@ -628,11 +629,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2028755125}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c5e809c1c33f48447b506525cf06eeaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screenBounds: {x: 0, y: 0}
+  objWidth: 0
+  objHeight: 0
 --- !u!1 &2049285978
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,7 +665,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 526993154}
+  m_Father: {fileID: 2028755126}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2049285980
@@ -677,7 +681,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.34617257}
+  m_Offset: {x: 0, y: -6.597804}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -688,5 +692,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.6923451}
+  m_Size: {x: 1, y: 14.195608}
   m_EdgeRadius: 0
