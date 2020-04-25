@@ -93,8 +93,6 @@ public class Player : MonoBehaviour
     {
         if(movementInput.x != 0f)
         {
-
-                //modifying the Vector3, based on input multiplied by speed and time
                 currentEulerAngles += new Vector3(0, 0, movementInput.x * rotationSpeed);
 
             if(currentEulerAngles.z > 15)
@@ -127,17 +125,6 @@ public class Player : MonoBehaviour
     {
         inputAction.Disable();
     }
-
-    /*private void OnTriggerEnter2D(Collider2D collision)
-    {
-
-        if(movementInput.y > 0 && collision.tag == "Edge")
-        {
-            float camX = mainCam.transform.position.x;
-            mainCam.transform.position = new Vector3(camX + 1, 0, -10);
-        }
-    }*/
-
     private void OnTriggerStay2D(Collider2D collision)
     {
         
