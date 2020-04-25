@@ -2,9 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    //See if player started moving
+    bool startedMoving = false;
+
     //Rotation Speed
     public float rotationSpeed = 10f;
 
@@ -23,9 +27,21 @@ public class Player : MonoBehaviour
 
     //Check the water levels of puddle
     public bool hasWater = true;
+    public bool overWater = true;
 
     //Get Camera
     public Camera mainCam;
+
+    //Get Slider
+    public Slider waterLevel;
+    public float lossAmount = 5f;
+    public float waterGain = .01f;
+
+    //Is hit
+    bool isHit = false;
+
+    //Lives
+    public int lives = 3;
 
     //Rigidbody
     Rigidbody2D rb;
@@ -40,25 +56,35 @@ public class Player : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>() as Rigidbody2D;
         inputAction = new PlayerInputActions();
         inputAction.PlayerControls.Move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
+        lives = 3;
 
     }
 
     private void Update()
     {
-        RotateJetpack();
-        RaiseJetpack();
+        if(lives > 0)
+        {
+            RotateJetpack();
+            RaiseJetpack();
+        }
+        else
+        {
+            //play burning animation
+        }
     }
 
 
     private void RaiseJetpack()
     {
        
-        if(movementInput.y > 0 && hasWater)
+        if(movementInput.y > 0 && hasWater && waterLevel.value != 0)
         {
             if(transform.position.y < heightLimit)
             {
                 rb.velocity = new Vector2(currentEulerAngles.z * raiseSpeed * angleSpeed * -1, raiseSpeed);
             }
+            startedMoving = true;
+            waterLevel.value -= lossAmount * Time.deltaTime; 
             
         }
     }
@@ -102,24 +128,74 @@ public class Player : MonoBehaviour
         inputAction.Disable();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Trigger entered");
+
         if(movementInput.y > 0 && collision.tag == "Edge")
         {
             float camX = mainCam.transform.position.x;
             mainCam.transform.position = new Vector3(camX + 1, 0, -10);
         }
-    }
+    }*/
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("Trigger staying");
+        
         if (movementInput.y > 0 && collision.tag == "Edge")
         {
             float camX = mainCam.transform.position.x;
             mainCam.transform.position = new Vector3(mainCam.transform.position.x + Time.deltaTime, 0, -10);
         }
+
+        if(collision.tag == "Water")
+        {
+            Puddle puddle = collision.GetComponent<Puddle>();
+            if(waterLevel.value < 1 && puddle.water > 0)
+            {
+                puddle.water -= lossAmount * Time.deltaTime;
+                waterLevel.value += (lossAmount + (lossAmount / 2)) * Time.deltaTime;
+            }
+        }
+
+        if(collision.tag == "Obstacle")
+        {
+            if(!isHit)
+            {
+                lives--;
+                StartCoroutine(Hit());
+            }
+        }
+
+        if (collision.tag == "Ground")
+        {
+            if (!isHit)
+            {
+                lives--;
+                waterLevel.value = .5f;
+                rb.velocity = new Vector2(currentEulerAngles.z * raiseSpeed * angleSpeed * -1, raiseSpeed + raiseSpeed);
+                StartCoroutine(Hit());
+            }
+
+        }
+    }
+
+    IEnumerator Hit()
+    {
+        isHit = true;
+        SpriteRenderer sprite = gameObject.GetComponent<SpriteRenderer>();
+        sprite.enabled = false;
+        yield return new WaitForSeconds(.2f);
+        sprite.enabled = true;
+        yield return new WaitForSeconds(.2f);
+        sprite.enabled = false;
+        yield return new WaitForSeconds(.2f);
+        sprite.enabled = true;
+        yield return new WaitForSeconds(.2f);
+        sprite.enabled = false;
+        yield return new WaitForSeconds(.2f);
+        sprite.enabled = true;
+        yield return new WaitForSeconds(.2f);
+        isHit = false;
     }
 
 }
