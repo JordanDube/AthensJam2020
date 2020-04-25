@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Git Repos\AthensJam2020\AthensJam2020" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="CameraMovementTest" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="EntitySpawner.cs" t="Include" />
+            <e p="FollowAnimationCurve.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Samples" t="Include">
+          <e p="Input System" t="Include">
+            <e p="1.0.0-preview.7" t="Include">
+              <e p="Custom Binding Composite" t="Include">
+                <e p="CustomComposite.cs" t="Include" />
+              </e>
+              <e p="Custom Device" t="Include">
+                <e p="CustomDevice.cs" t="Include" />
+              </e>
+              <e p="Custom Device Usages" t="Include">
+                <e p="CustomDeviceUsages.cs" t="Include" />
+              </e>
+              <e p="Gamepad Mouse Cursor" t="Include">
+                <e p="Unity.InputSystem.VirtualMouseInput.asmdef" t="Include" />
+                <e p="VirtualMouseInput.cs" t="Include" />
+              </e>
+              <e p="In-Game Hints" t="Include">
+                <e p="InGameHintsActions.cs" t="Include" />
+                <e p="InGameHintsExample.cs" t="Include" />
+                <e p="Unity.InputSystem.InGameHints.asmdef" t="Include" />
+              </e>
+              <e p="Input Recorder" t="Include">
+                <e p="InputRecorder.cs" t="Include" />
+                <e p="InputRecorderInspector.cs" t="Include" />
+                <e p="Unity.InputSystem.Recorder.asmdef" t="Include" />
+              </e>
+              <e p="Rebinding UI" t="Include">
+                <e p="GamepadIconsExample.cs" t="Include" />
+                <e p="RebindActionUI.cs" t="Include" />
+                <e p="RebindActionUIEditor.cs" t="Include" />
+                <e p="Unity.InputSystem.RebindingUI.asmdef" t="Include" />
+              </e>
+              <e p="Simple Demo" t="Include">
+                <e p="SimpleController_UsingActionAsset.cs" t="Include" />
+                <e p="SimpleController_UsingActions.cs" t="Include" />
+                <e p="SimpleController_UsingPlayerInput.cs" t="Include" />
+                <e p="SimpleController_UsingState.cs" t="Include" />
+                <e p="SimpleControls.cs" t="Include" />
+              </e>
+              <e p="Simple Multiplayer" t="Include">
+                <e p="SimpleMultiplayerPlayer.cs" t="Include" />
+              </e>
+              <e p="Visualizers" t="Include">
+                <e p="InputActionVisualizer.cs" t="Include" />
+                <e p="InputControlVisualizer.cs" t="Include" />
+                <e p="InputVisualizer.cs" t="Include" />
+                <e p="Unity.InputSystem.Visualizers.asmdef" t="Include" />
+                <e p="VisualizationHelpers.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="AthensJam2020.sln" t="IncludeFlat" />
+      <e p="InputSystem.Samples.Visualizers.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="Unity.InputSystem.InGameHints.csproj" t="IncludeRecursive" />
+      <e p="Unity.InputSystem.RebindingUI.csproj" t="IncludeRecursive" />
+      <e p="Unity.InputSystem.Recorder.csproj" t="IncludeRecursive" />
+      <e p="Unity.InputSystem.VirtualMouseInput.csproj" t="IncludeRecursive" />
+    </e>
+    <e p="C:\Users\Josh\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Josh\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_AthensJam2020.-2076334709.00" t="ExcludeRecursive" />
+  </component>
+</project>
