@@ -24,7 +24,8 @@ public class Player : MonoBehaviour
     //Check the water levels of puddle
     public bool hasWater = true;
 
-    //float currentRotation;
+    //Get Camera
+    public Camera mainCam;
 
     //Rigidbody
     Rigidbody2D rb;
@@ -47,6 +48,7 @@ public class Player : MonoBehaviour
         RotateJetpack();
         RaiseJetpack();
     }
+
 
     private void RaiseJetpack()
     {
@@ -99,4 +101,25 @@ public class Player : MonoBehaviour
     {
         inputAction.Disable();
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Trigger entered");
+        if(movementInput.y > 0 && collision.tag == "Edge")
+        {
+            float camX = mainCam.transform.position.x;
+            mainCam.transform.position = new Vector3(camX + 1, 0, -10);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        Debug.Log("Trigger staying");
+        if (movementInput.y > 0 && collision.tag == "Edge")
+        {
+            float camX = mainCam.transform.position.x;
+            mainCam.transform.position = new Vector3(mainCam.transform.position.x + Time.deltaTime, 0, -10);
+        }
+    }
+
 }
