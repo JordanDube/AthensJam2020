@@ -39,6 +39,8 @@ public class Player : MonoBehaviour
     public float lossAmount = 5f;
     public float waterGain = .01f;
 
+    public ParticleSystem particles;
+    
     //Is hit
     bool isHit = false;
     private bool isReady = false;
@@ -109,9 +111,16 @@ public class Player : MonoBehaviour
 
     private void RaiseJetpack()
     {
-       
+        if (movementInput.y > 0) {
+            particles.Play();
+        }
+        else {
+            particles.Stop();
+        }
+        
         if(movementInput.y > 0 && hasWater && waterLevel.value != 0)
         {
+            
             if(transform.position.y < heightLimit)
             {
                 rb.velocity = new Vector2(currentEulerAngles.z * raiseSpeed * angleSpeed * -1, raiseSpeed);
