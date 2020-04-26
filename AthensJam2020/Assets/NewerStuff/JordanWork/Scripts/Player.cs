@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
 
     //See if player started moving
     public bool startedMoving = false;
-
+    public bool offGround = false;
     //Rotation Speed
     public float rotationSpeed = 10f;
 
@@ -62,6 +62,7 @@ public class Player : MonoBehaviour
 
     private BoxCollider2D _BoxCollider2D;
 
+    public GameObject groundSound;
     private void Awake()
     {
         rb = gameObject.GetComponent<Rigidbody2D>() as Rigidbody2D;
@@ -91,6 +92,7 @@ public class Player : MonoBehaviour
             {
                 audioSource.Play();
                 startedMoving = false;
+                offGround = true;
             }
             RotateJetpack();
             RaiseJetpack();
@@ -99,6 +101,7 @@ public class Player : MonoBehaviour
         {
             //play burning animation
             audioSource.Stop();
+            offGround = false;
         }
         
     }
@@ -192,6 +195,7 @@ public class Player : MonoBehaviour
         {
             if(!isHit)
             {
+                collision.GetComponent<AudioSource>().Play();
                 lives--;
                 StartCoroutine(Hit());
             }
@@ -203,6 +207,7 @@ public class Player : MonoBehaviour
         if (other.tag == "Seagull") {
             if (!isHit)
             {
+                other.GetComponent<AudioSource>().Play();
                 lives--;
                 waterLevel.value = .5f;
                 rb.velocity = new Vector2(currentEulerAngles.z * raiseSpeed * angleSpeed * -1, raiseSpeed + raiseSpeed);
@@ -214,8 +219,10 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.collider.tag == "Ground" || other.collider.tag == "Seagull")
         {
-            if (!isHit && isReady)
+            if (!isHit && offGround && isReady)
+
             {
+                groundSound.GetComponent<AudioSource>().Play();
                 lives--;
                 waterLevel.value = .5f;
                 rb.velocity = new Vector2(currentEulerAngles.z * raiseSpeed * angleSpeed * -1, raiseSpeed + raiseSpeed);
