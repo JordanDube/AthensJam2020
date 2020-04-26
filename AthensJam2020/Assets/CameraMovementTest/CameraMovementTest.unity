@@ -834,6 +834,20 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8104835990239110117, guid: 89baee089e372334ca874847b8082a22,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Jordan Dube @Jordanopoly - Art, Audio, Programming
+
+        Josh Jacobs
+        @stumpheadjosh -Art, Programming
+
+        Treyton Oliver @OliverTreyton-
+        UI Art
+
+
+        Made For Athens Game Jam April 2020'
+      objectReference: {fileID: 0}
     - target: {fileID: 8104835990239110122, guid: 89baee089e372334ca874847b8082a22,
         type: 3}
       propertyPath: m_RootOrder
