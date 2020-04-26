@@ -76,7 +76,8 @@ public class Player : MonoBehaviour
     private IEnumerator Start() {
         float gravity = rb.gravityScale;
         rb.gravityScale = 0f;
-        yield return new WaitForSeconds(2f);
+
+        yield return new WaitUntil(() => { return movementInput.x > 0; });
         
         rb.gravityScale = gravity;
         isReady = true;
@@ -213,7 +214,7 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.collider.tag == "Ground" || other.collider.tag == "Seagull")
         {
-            if (!isHit)
+            if (!isHit && isReady)
             {
                 lives--;
                 waterLevel.value = .5f;

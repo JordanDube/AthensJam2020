@@ -6,8 +6,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    Player playerScript;
-    public GameObject player;
+    public Player playerScript;
     public Image[] hearts;
     int startingLives;
     public GameObject restartButton;
@@ -21,7 +20,6 @@ public class GameManager : MonoBehaviour
     int currentLives;
     private void Awake()
     {
-        playerScript = GameObject.Find("Jetpack").GetComponent<Player>();
         scoreText = GameObject.Find("Score").GetComponent<Text>();
         finalScoreText = GameObject.Find("FinalScore").GetComponent<Text>();
         startingLives = playerScript.lives;
@@ -34,7 +32,10 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        hearts[startingLives - playerScript.lives].enabled = false;
+        if (playerScript.lives > 0) {
+            hearts[startingLives - playerScript.lives].enabled = false;    
+        }
+        
         if(playerScript.lives == 0)
         {
             endScreen.SetActive(true);
@@ -59,7 +60,7 @@ public class GameManager : MonoBehaviour
     {
         if(playerScript.lives > 0)
         {
-            score += (int)(player.transform.position.x * scoreMultiplier);
+            score += (int)(playerScript.transform.position.x * scoreMultiplier);
         }
         
     }
