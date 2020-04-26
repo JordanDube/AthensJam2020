@@ -1945,6 +1945,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &748994664 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3465940701141932622, guid: 80eb83ff7de244f4baecbf1d382f7077,
+    type: 3}
+  m_PrefabInstance: {fileID: 1829021246}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &754540348 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8104835989149911597, guid: 89baee089e372334ca874847b8082a22,
@@ -5575,6 +5581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startedMoving: 0
+  offGround: 0
   rotationSpeed: 0.5
   raiseSpeed: 1.5
   angleSpeed: 1
@@ -5586,6 +5593,7 @@ MonoBehaviour:
   lossAmount: 1
   waterGain: 0.01
   lives: 3
+  groundSound: {fileID: 748994664}
 --- !u!50 &1767512490
 Rigidbody2D:
   serializedVersion: 4
@@ -6150,6 +6158,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 865196647865053904, guid: 80eb83ff7de244f4baecbf1d382f7077,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3465940700797518485, guid: 80eb83ff7de244f4baecbf1d382f7077,
         type: 3}
       propertyPath: m_LookaheadTime
@@ -6240,6 +6253,32 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1767512488}
+    - target: {fileID: 4849476544297992424, guid: 80eb83ff7de244f4baecbf1d382f7077,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4849476544297992424, guid: 80eb83ff7de244f4baecbf1d382f7077,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4849476544297992424, guid: 80eb83ff7de244f4baecbf1d382f7077,
+        type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4849476544297992424, guid: 80eb83ff7de244f4baecbf1d382f7077,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -7645147208054997379, guid: d6413c3ef707578439b418e801199ddd,
+        type: 2}
+    - target: {fileID: 4849476544297992424, guid: 80eb83ff7de244f4baecbf1d382f7077,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3e1ebd2c10eeacf4484565ec00a5e4d9, type: 3}
     m_RemovedComponents:
     - {fileID: 3517259650188434273, guid: 80eb83ff7de244f4baecbf1d382f7077, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 80eb83ff7de244f4baecbf1d382f7077, type: 3}
