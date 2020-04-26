@@ -51,35 +51,26 @@ public class Player : MonoBehaviour
 
     //Move
     Vector2 movementInput;
-
-    //Audio
-    AudioSource audioSource;
     private void Awake()
     {
         rb = gameObject.GetComponent<Rigidbody2D>() as Rigidbody2D;
         inputAction = new PlayerInputActions();
         inputAction.PlayerControls.Move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
         lives = 3;
-        audioSource = gameObject.GetComponent<AudioSource>();
+
     }
 
     private void Update()
     {
         if(lives > 0)
         {
-            if (startedMoving)
-            {
-                audioSource.Play();
-            }
             RotateJetpack();
             RaiseJetpack();
         }
         else
         {
             //play burning animation
-            audioSource.Stop();
         }
-        
     }
 
 
