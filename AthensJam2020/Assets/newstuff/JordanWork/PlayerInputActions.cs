@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/JordanWork/PlayerInputActions.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/newStuff/JordanWork/PlayerInputActions.inputactions'
 
 using System;
 using System.Collections;

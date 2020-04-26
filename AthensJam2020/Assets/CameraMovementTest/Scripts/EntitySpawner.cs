@@ -3,8 +3,6 @@ using CandyCoded;
 using UnityEngine;
 
 public class EntitySpawner : MonoBehaviour {
-
-    public bool spawnAsChild = false;
     
     [SerializeField]
     [RangedSlider(0, 10)]

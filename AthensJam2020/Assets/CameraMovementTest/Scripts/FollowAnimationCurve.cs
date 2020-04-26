@@ -33,6 +33,14 @@ public class FollowAnimationCurve : MonoBehaviour {
 
   public CandyCoded.GameObjectPoolReference entityObjectPoolReference;
 
+  [SerializeField]
+  [RangedSlider(-10, 10)]
+  public RangedFloat randomXRange;
+    
+  [SerializeField]
+  [RangedSlider(-10, 10)]
+  public RangedFloat randomYRange;
+  
   public UnityEvent events;
 
   private Vector3 destination;
@@ -48,7 +56,7 @@ public class FollowAnimationCurve : MonoBehaviour {
   
   private void CalculateDestination() {
     if (useLocalPosition) {
-      animationCurve.EditKeyframeValue(0, new Vector3(gameObjectToManipulate.transform.localPosition.x, gameObjectToManipulate.transform.localPosition.y, 0));      
+      animationCurve.EditKeyframeValue(0, new Vector3(gameObjectToManipulate.transform.localPosition.x, randomYRange.Random(), 0));      
     } else {
       animationCurve.EditKeyframeValue(0, new Vector3(gameObjectToManipulate.transform.position.x, gameObjectToManipulate.transform.position.y, 0));      
     }

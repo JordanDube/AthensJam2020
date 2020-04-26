@@ -42,6 +42,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Sun
+    uniqueID: 1548013235
+    locked: 0
+  - name: Clouds
+    uniqueID: 1481622885
+    locked: 0
+  - name: Waves
+    uniqueID: 3782590697
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

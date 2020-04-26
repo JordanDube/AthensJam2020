@@ -10,16 +10,70 @@
             <e p="FollowAnimationCurve.cs" t="Include" />
             <e p="LevelGenerator.cs" t="Include" />
             <e p="LevelGeneratorListener.cs" t="Include" />
+            <e p="RandomSprite.cs" t="Include" />
           </e>
         </e>
-        <e p="JordanWork" t="Include">
-          <e p="PlayerInputActions.cs" t="Include" />
-          <e p="Scripts" t="Include">
-            <e p="Player.cs" t="Include" />
+        <e p="newStuff" t="Include">
+          <e p="JordanWork" t="Include">
+            <e p="PlayerInputActions.cs" t="Include" />
+            <e p="Scripts" t="Include">
+              <e p="GameManager.cs" t="Include" />
+              <e p="Player.cs" t="Include" />
+              <e p="Puddle.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Plugins" t="Include">
+          <e p="CandyCoded" t="Include">
+            <e p="CandyCoded.asmdef" t="Include" />
+            <e p="Documentation" t="Include">
+              <e p="Version.txt" t="Include" />
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="Animate.cs" t="Include" />
+              <e p="AnimationData.cs" t="Include" />
+              <e p="Calculation.cs" t="Include" />
+              <e p="CustomEditor" t="Include">
+                <e p="CustomEditorExtensions.cs" t="Include" />
+                <e p="EnumMask.cs" t="Include" />
+                <e p="EventProfiler.cs" t="Include" />
+                <e p="RangedSliderDrawer.cs" t="Include" />
+                <e p="RangedStepSliderDrawer.cs" t="Include" />
+              </e>
+              <e p="CustomExtensions.cs" t="Include" />
+              <e p="Debugger.cs" t="Include" />
+              <e p="InputManager.cs" t="Include" />
+              <e p="InterfaceEvents.cs" t="Include" />
+              <e p="Interfaces.cs" t="Include" />
+              <e p="Materials.cs" t="Include" />
+              <e p="Math.cs" t="Include" />
+              <e p="ObservableList.cs" t="Include" />
+              <e p="Raycast.cs" t="Include" />
+              <e p="Runner.cs" t="Include" />
+              <e p="SaveManager.cs" t="Include" />
+              <e p="Screenshot.cs" t="Include" />
+              <e p="ScriptableObjects" t="Include">
+                <e p="AudioPoolReference.cs" t="Include" />
+                <e p="BoolReference.cs" t="Include" />
+                <e p="CustomGenericScriptableObject.cs" t="Include" />
+                <e p="CustomScriptableObject.cs" t="Include" />
+                <e p="FloatReference.cs" t="Include" />
+                <e p="GameObjectListReference.cs" t="Include" />
+                <e p="GameObjectPoolReference.cs" t="Include" />
+                <e p="GameObjectReference.cs" t="Include" />
+                <e p="IntReference.cs" t="Include" />
+                <e p="ListReference.cs" t="Include" />
+                <e p="ObservableListReference.cs" t="Include" />
+                <e p="PoolReference.cs" t="Include" />
+                <e p="StringReference.cs" t="Include" />
+              </e>
+              <e p="Structs.cs" t="Include" />
+            </e>
           </e>
         </e>
       </e>
       <e p="AthensJam2020.sln" t="IncludeFlat" />
+      <e p="CandyCoded.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
       <e p="Temp\bin" t="ExcludeRecursive" />
