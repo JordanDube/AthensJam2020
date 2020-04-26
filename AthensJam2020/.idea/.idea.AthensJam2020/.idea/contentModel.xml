@@ -13,7 +13,7 @@
             <e p="RandomSprite.cs" t="Include" />
           </e>
         </e>
-        <e p="newStuff" t="Include">
+        <e p="NewerStuff" t="Include">
           <e p="JordanWork" t="Include">
             <e p="PlayerInputActions.cs" t="Include" />
             <e p="Scripts" t="Include">
@@ -23,6 +23,7 @@
             </e>
           </e>
         </e>
+        <e p="OceanSounds.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="CandyCoded" t="Include">
             <e p="CandyCoded.asmdef" t="Include" />

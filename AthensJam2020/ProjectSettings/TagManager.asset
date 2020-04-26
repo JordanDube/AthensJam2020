@@ -18,9 +18,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Ground
+  - Player
+  - Collidables
   - 
   - 
   - 
@@ -57,4 +57,7 @@ TagManager:
     locked: 0
   - name: Collidable
     uniqueID: 2325270511
+    locked: 0
+  - name: Player
+    uniqueID: 2788792023
     locked: 0
