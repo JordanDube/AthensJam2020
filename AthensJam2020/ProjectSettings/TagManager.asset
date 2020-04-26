@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Obstacle
   - Music
+  - Seagull
   layers:
   - Default
   - TransparentFX

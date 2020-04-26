@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Globalization;
 using CandyCoded;
 using UnityEngine;
 using UnityEngine.Events;
@@ -45,7 +47,14 @@ public class FollowAnimationCurve : MonoBehaviour {
 
   private Vector3 destination;
   private float _initializationTime;
-  
+
+  private void OnEnable() {
+    ResetInitializationTime();
+    if (useAnimationCurve) {
+      StartCoroutine(Animate());
+    }
+  }
+
   private void Awake() {
     if (gameObjectToManipulate == null) {
       gameObjectToManipulate = this.gameObject;
@@ -56,7 +65,9 @@ public class FollowAnimationCurve : MonoBehaviour {
   
   private void CalculateDestination() {
     if (useLocalPosition) {
-      animationCurve.EditKeyframeValue(0, new Vector3(gameObjectToManipulate.transform.localPosition.x, randomYRange.Random(), 0));      
+      float y = randomYRange.Random();
+      animationCurve.EditKeyframeValue(0, new Vector3(Camera.main.transform.position.x + 10, y, 0));
+      animationCurve.EditKeyframeValue(1, new Vector3(Camera.main.transform.position.x - 10, y, 0));      
     } else {
       animationCurve.EditKeyframeValue(0, new Vector3(gameObjectToManipulate.transform.position.x, gameObjectToManipulate.transform.position.y, 0));      
     }

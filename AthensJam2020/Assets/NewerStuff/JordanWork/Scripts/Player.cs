@@ -41,7 +41,8 @@ public class Player : MonoBehaviour
 
     //Is hit
     bool isHit = false;
-
+    private bool isReady = false;
+    
     //Lives
     public int lives = 3;
 
@@ -57,18 +58,33 @@ public class Player : MonoBehaviour
     //Audio
     AudioSource audioSource;
 
+    private SpriteRenderer _SpriteRenderer;
+
+    private BoxCollider2D _BoxCollider2D;
+
     private void Awake()
     {
         rb = gameObject.GetComponent<Rigidbody2D>() as Rigidbody2D;
+        _SpriteRenderer = GetComponent<SpriteRenderer>();
+        _BoxCollider2D = GetComponent<BoxCollider2D>();
         inputAction = new PlayerInputActions();
         inputAction.PlayerControls.Move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
         lives = 3;
         audioSource = gameObject.GetComponent<AudioSource>();
     }
 
+    private IEnumerator Start() {
+        float gravity = rb.gravityScale;
+        rb.gravityScale = 0f;
+        yield return new WaitForSeconds(2f);
+        
+        rb.gravityScale = gravity;
+        isReady = true;
+    }
+
     private void Update()
     {
-        if(lives > 0)
+        if(lives > 0 && isReady)
         {
             if (startedMoving)
             {
@@ -179,8 +195,23 @@ public class Player : MonoBehaviour
                 StartCoroutine(Hit());
             }
         }
+    }
 
-        if (collision.tag == "Ground")
+    private void OnTriggerEnter2D(Collider2D other) {
+        Debug.Log(other.tag);
+        if (other.tag == "Seagull") {
+            if (!isHit)
+            {
+                lives--;
+                waterLevel.value = .5f;
+                rb.velocity = new Vector2(currentEulerAngles.z * raiseSpeed * angleSpeed * -1, raiseSpeed + raiseSpeed);
+                StartCoroutine(Hit());
+            }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if (other.collider.tag == "Ground")
         {
             if (!isHit)
             {
@@ -189,13 +220,13 @@ public class Player : MonoBehaviour
                 rb.velocity = new Vector2(currentEulerAngles.z * raiseSpeed * angleSpeed * -1, raiseSpeed + raiseSpeed);
                 StartCoroutine(Hit());
             }
-
         }
     }
 
     IEnumerator Hit()
     {
         isHit = true;
+        Physics2D.IgnoreLayerCollision(9, 10, true);
         SpriteRenderer sprite = gameObject.GetComponent<SpriteRenderer>();
         sprite.enabled = false;
         yield return new WaitForSeconds(.2f);
@@ -209,6 +240,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(.2f);
         sprite.enabled = true;
         yield return new WaitForSeconds(.2f);
+        Physics2D.IgnoreLayerCollision(9, 10, false);
         isHit = false;
     }
 

@@ -453,7 +453,7 @@ Transform:
   - {fileID: 1449788531}
   - {fileID: 50556463}
   m_Father: {fileID: 1494549000}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &359774028
 PrefabInstance:
@@ -2817,11 +2817,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041646855}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1494549000}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1041646857
 MonoBehaviour:
@@ -2839,11 +2839,12 @@ MonoBehaviour:
     min: 1.0279253
     max: 10
   randomXRange:
-    min: 9.2513275
+    min: 9.805125
     max: 10
   randomYRange:
-    min: 0
-    max: 5.002569
+    min: -2.7689877
+    max: 2.3126955
+  spawnBeyondCamera: 1
   entityObjectPoolReference: {fileID: 11400000, guid: 266aa85c7a8d8c74da886caeb2504c7c,
     type: 2}
 --- !u!1 &1189822105
@@ -3177,11 +3178,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235042803}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1494549000}
-  m_RootOrder: 4
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1235042806
 MonoBehaviour:
@@ -3204,6 +3205,7 @@ MonoBehaviour:
   randomYRange:
     min: 2.4352062
     max: 4.990435
+  spawnBeyondCamera: 1
   entityObjectPoolReference: {fileID: 11400000, guid: f5274e1a09bcc92479524753430adc49,
     type: 2}
 --- !u!1 &1386810809
@@ -3254,7 +3256,7 @@ Transform:
   - {fileID: 1982499468}
   - {fileID: 785770509}
   m_Father: {fileID: 1494549000}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1444836136
 GameObject:
@@ -3559,7 +3561,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1494549000}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1465935534
 GameObject:
@@ -3745,11 +3747,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1041646856}
   - {fileID: 1459259771}
   - {fileID: 355561161}
   - {fileID: 1386810810}
-  - {fileID: 1235042804}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5153,7 +5153,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8f2d5a29825700e40aed303d9778589c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5776,6 +5776,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3465940700797518485, guid: 80eb83ff7de244f4baecbf1d382f7077,
+        type: 3}
+      propertyPath: m_LookaheadTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3465940700797518485, guid: 80eb83ff7de244f4baecbf1d382f7077,
+        type: 3}
+      propertyPath: m_YDamping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3465940700797518485, guid: 80eb83ff7de244f4baecbf1d382f7077,
+        type: 3}
+      propertyPath: m_ScreenY
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3465940700797518485, guid: 80eb83ff7de244f4baecbf1d382f7077,
+        type: 3}
+      propertyPath: m_DeadZoneHeight
+      value: 0.405
+      objectReference: {fileID: 0}
+    - target: {fileID: 3465940700797518485, guid: 80eb83ff7de244f4baecbf1d382f7077,
+        type: 3}
+      propertyPath: m_SoftZoneHeight
+      value: 0.7479169
+      objectReference: {fileID: 0}
     - target: {fileID: 3465940701141932620, guid: 80eb83ff7de244f4baecbf1d382f7077,
         type: 3}
       propertyPath: m_LocalPosition.x

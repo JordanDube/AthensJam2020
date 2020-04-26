@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47fd93ea66ad94acd87b9304e9e59f31, type: 3}
   m_Name: SeagullObjectPool
   m_EditorClassIdentifier: 
-  _minObjects: 10
+  _minObjects: 0
   _prefab: {fileID: 1493679158821424216, guid: 356a82340a963a8448db8251cb1dcd8b, type: 3}
   _parentTransform: {fileID: 0}
