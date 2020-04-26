@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
     public Text finalScoreText;
     public GameObject finalScore;
+    public GameObject endScreen;
+    public GameObject startScreen;
     int score;
     public float scoreMultiplier = 0.25f;
     int currentLives;
@@ -23,20 +25,25 @@ public class GameManager : MonoBehaviour
         scoreText = GameObject.Find("Score").GetComponent<Text>();
         finalScoreText = GameObject.Find("FinalScore").GetComponent<Text>();
         startingLives = playerScript.lives;
+        startScreen.SetActive(true);
     }
 
     private void Start()
     {
-        finalScore.SetActive(false);
+        endScreen.SetActive(false);
     }
     private void Update()
     {
         hearts[startingLives - playerScript.lives].enabled = false;
         if(playerScript.lives == 0)
         {
-            restartButton.SetActive(true);
+            endScreen.SetActive(true);
             finalScoreText.text = "" + score;
-            finalScore.SetActive(true);
+            scoreText.enabled = false;
+        }
+        if(playerScript.startedMoving)
+        {
+            startScreen.SetActive(false);
         }
         scoreText.text = "" + score;
         ComputeScore();

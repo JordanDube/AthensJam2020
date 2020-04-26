@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/JordanWork/PlayerInputActions.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/NewerStuff/JordanWork/PlayerInputActions.inputactions'
 
 using System;
 using System.Collections;
@@ -29,7 +29,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": ""WET"",
+                    ""name"": ""QPB"",
                     ""id"": ""da41b226-f0a5-4b96-999f-b6e8ee267a03"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
@@ -42,7 +42,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 {
                     ""name"": ""up"",
                     ""id"": ""b99e4a23-a569-4ea0-b33c-637baefce582"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/b"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -53,7 +53,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 {
                     ""name"": ""left"",
                     ""id"": ""f994c824-c40e-4e0d-977e-a15c7027b613"",
-                    ""path"": ""<Keyboard>/t"",
+                    ""path"": ""<Keyboard>/p"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -64,7 +64,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 {
                     ""name"": ""right"",
                     ""id"": ""38172d53-075a-4c17-bc46-a3098677c002"",
-                    ""path"": ""<Keyboard>/w"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",

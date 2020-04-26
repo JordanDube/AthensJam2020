@@ -6,8 +6,9 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+
     //See if player started moving
-    bool startedMoving = false;
+    public bool startedMoving = false;
 
     //Rotation Speed
     public float rotationSpeed = 10f;
@@ -53,6 +54,7 @@ public class Player : MonoBehaviour
 
     //Audio
     AudioSource audioSource;
+
     private void Awake()
     {
         rb = gameObject.GetComponent<Rigidbody2D>() as Rigidbody2D;
