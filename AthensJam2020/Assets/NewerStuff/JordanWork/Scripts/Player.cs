@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     //Angle speed
     public float angleSpeed = 10f;
 
+    public float maxAngle = 15;
+
     //Height Limit
     public float heightLimit = 2f;
 
@@ -99,27 +101,28 @@ public class Player : MonoBehaviour
                 startedMoving = true;
             }
             
-            waterLevel.value -= lossAmount * Time.deltaTime; 
-            
+            waterLevel.value -= lossAmount * Time.deltaTime;
         }
     }
 
     private void RotateJetpack()
     {
+        Debug.Log(movementInput.x);
+
         if(movementInput.x != 0f)
         {
-                currentEulerAngles += new Vector3(0, 0, movementInput.x * rotationSpeed);
+            currentEulerAngles += new Vector3(0, 0, movementInput.x * rotationSpeed);
 
-            if(currentEulerAngles.z > 15)
+            if(currentEulerAngles.z > maxAngle)
             {
-                currentEulerAngles.z = 15;
+                currentEulerAngles.z = maxAngle;
             }
-            else if (currentEulerAngles.z < -15)
+            else if (currentEulerAngles.z < -maxAngle)
             {
-                currentEulerAngles.z = -15;
+                currentEulerAngles.z = -maxAngle;
             }
 
-            if (currentEulerAngles.z <= 15 && currentEulerAngles.z >= -15)
+            if (currentEulerAngles.z <= maxAngle && currentEulerAngles.z >= -maxAngle)
             {
                 //moving the value of the Vector3 into Quanternion.eulerAngle format
                 currentRotation.eulerAngles = currentEulerAngles;
@@ -127,11 +130,18 @@ public class Player : MonoBehaviour
                 //apply the Quaternion.eulerAngles change to the gameObject
                 transform.rotation = currentRotation;
             }
-                
+        }
+        else {
+            currentEulerAngles = Vector3.zero;
 
-            
+            //moving the value of the Vector3 into Quanternion.eulerAngle format
+            currentRotation.eulerAngles = currentEulerAngles;
+
+            //apply the Quaternion.eulerAngles change to the gameObject
+            transform.rotation = currentRotation;
         }
     }
+
     private void OnEnable()
     {
         inputAction.Enable();
@@ -154,8 +164,10 @@ public class Player : MonoBehaviour
             Puddle puddle = collision.GetComponent<Puddle>();
             if(waterLevel.value < 1 && puddle.water > 0)
             {
-                puddle.water -= lossAmount * Time.deltaTime;
-                waterLevel.value += (lossAmount + (lossAmount / 2)) * Time.deltaTime;
+                if (!puddle.isInfinite) {
+                    puddle.water -= lossAmount * Time.deltaTime;
+                    waterLevel.value += (lossAmount + (lossAmount / 2)) * Time.deltaTime;   
+                }
             }
         }
 

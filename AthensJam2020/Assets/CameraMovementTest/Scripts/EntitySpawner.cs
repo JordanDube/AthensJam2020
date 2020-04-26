@@ -19,10 +19,12 @@ public class EntitySpawner : MonoBehaviour {
     public CandyCoded.GameObjectPoolReference entityObjectPoolReference;
 
     private void Awake() {
-        entityObjectPoolReference.parentTransform = transform;
-        entityObjectPoolReference.Populate();
+        if (entityObjectPoolReference) {
+            entityObjectPoolReference.parentTransform = transform;
+            entityObjectPoolReference.Populate();
 
-        StartCoroutine(SpawnEntity());
+            StartCoroutine(SpawnEntity());   
+        }
     }
 
     IEnumerator SpawnEntity() {
