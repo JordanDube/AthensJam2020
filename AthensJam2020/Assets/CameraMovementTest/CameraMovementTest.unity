@@ -5794,7 +5794,7 @@ PrefabInstance:
     - target: {fileID: 3465940700797518485, guid: 80eb83ff7de244f4baecbf1d382f7077,
         type: 3}
       propertyPath: m_DeadZoneHeight
-      value: 0.405
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3465940700797518485, guid: 80eb83ff7de244f4baecbf1d382f7077,
         type: 3}
