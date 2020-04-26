@@ -21,16 +21,17 @@ public class GameManager : MonoBehaviour
     int currentLives;
     private void Awake()
     {
-        playerScript = GameObject.Find("Jetpack").GetComponent<Player>();
+        endScreen.SetActive(false);
+        playerScript = GameObject.Find("Player").GetComponent<Player>();
         scoreText = GameObject.Find("Score").GetComponent<Text>();
-        finalScoreText = GameObject.Find("FinalScore").GetComponent<Text>();
+        //finalScoreText = GameObject.Find("FinalScore").GetComponent<Text>();
         startingLives = playerScript.lives;
-        startScreen.SetActive(true);
     }
 
     private void Start()
     {
-        endScreen.SetActive(false);
+        
+        startScreen.SetActive(true);
     }
     private void Update()
     {
@@ -38,7 +39,7 @@ public class GameManager : MonoBehaviour
         if(playerScript.lives == 0)
         {
             endScreen.SetActive(true);
-            finalScoreText.text = "" + score;
+            finalScore.GetComponent<Text>().text = "" + score;
             scoreText.enabled = false;
         }
         if(playerScript.startedMoving)

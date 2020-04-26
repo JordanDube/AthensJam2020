@@ -7,8 +7,11 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
 
+    public AudioClip[] sounds;
+
     //See if player started moving
     public bool startedMoving = false;
+    public bool groundHurt = false;
 
     //Rotation Speed
     public float rotationSpeed = 10f;
@@ -64,6 +67,7 @@ public class Player : MonoBehaviour
         inputAction.PlayerControls.Move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
         lives = 3;
         audioSource = gameObject.GetComponent<AudioSource>();
+        
     }
 
     private void Update()
@@ -82,6 +86,7 @@ public class Player : MonoBehaviour
         {
             //play burning animation
             audioSource.Stop();
+            groundHurt = false;
         }
         
     }
@@ -99,6 +104,7 @@ public class Player : MonoBehaviour
             if(!audioSource.isPlaying)
             {
                 startedMoving = true;
+                groundHurt = true;
             }
             
             waterLevel.value -= lossAmount * Time.deltaTime;
@@ -107,7 +113,6 @@ public class Player : MonoBehaviour
 
     private void RotateJetpack()
     {
-        Debug.Log(movementInput.x);
 
         if(movementInput.x != 0f)
         {
@@ -175,6 +180,8 @@ public class Player : MonoBehaviour
         {
             if(!isHit)
             {
+                AudioSource sound = collision.GetComponent<AudioSource>();
+                sound.Play();
                 lives--;
                 StartCoroutine(Hit());
             }
@@ -182,7 +189,8 @@ public class Player : MonoBehaviour
 
         if (collision.tag == "Ground")
         {
-            if (!isHit)
+            Debug.Log("Touching ground");
+            if (!isHit && groundHurt)
             {
                 lives--;
                 waterLevel.value = .5f;
