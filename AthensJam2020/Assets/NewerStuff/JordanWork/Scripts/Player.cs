@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
         float gravity = rb.gravityScale;
         rb.gravityScale = 0f;
 
-        yield return new WaitUntil(() => { return movementInput.x > 0; });
+        yield return new WaitUntil(() => { return movementInput.x != 0 || movementInput.y != 0; });
         
         rb.gravityScale = gravity;
         isReady = true;

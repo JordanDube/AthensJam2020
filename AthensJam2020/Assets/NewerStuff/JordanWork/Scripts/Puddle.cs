@@ -17,9 +17,9 @@ public class Puddle : MonoBehaviour {
     }
 
     private void Update() {
-        if (water < 4f) {
+        if (water < 4f && water > 0f) {
             _Animator.SetBool("isLow", true);
-        } else if (water < 0f) {
+        } else if (water <= 0f) {
             _Animator.SetBool("isEmpty", true);
         }
     }
